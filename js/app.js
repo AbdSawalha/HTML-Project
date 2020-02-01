@@ -13,7 +13,6 @@ function loadTasks(taskList) {
             }
         }
         if (task.description == "This is my new task") {
-            debugger
             task.createdOn=new Date();
             task.dueDate=new Date("01/01/2018");
             task.completed = false;
