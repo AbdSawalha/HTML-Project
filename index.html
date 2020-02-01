@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <link rel="stylesheet" href="css/main.css">
-
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-    <h1>Task List</h1>
-    <button onclick="addTask({title:'My New Task!',description:'This is my new task',img:'https://picsum.photos/1600/900?v99'})">Add Task</button>
-    <div id="taskContainer">
+
+    <div class="container">
+
+
+        <div class="row">
+                <div class="col-md-12">
+                        <h1 class="panel-header">Task Manager</h1>
+                </div>
+            </div>
+        <div class="panel panel-default">
+            <div class="panel-heading"><i class="glyphicon glyphicon-th-list"></i>Task List<button
+                    onclick="addTask({title:'My New Task!',description:'This is my new task',img:'https://picsum.photos/1600/900?v99'})" class="button pull-right"><i class="glyphicon glyphicon-plus"></i>
+                    Add Task</button></div>
+            <div class="panel-body">
+                    <div id="taskContainer">
+
+                        </div>
+            </div>
+        </div>
 
     </div>
     <script src="js/taskList.js"></script>
     <script src="js/app.js"></script>
 </body>
+
 </html>

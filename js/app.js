@@ -1,22 +1,37 @@
 
-function loadTasks(taskList){
+function loadTasks(taskList) {
     let container = document.getElementById('taskContainer');
-    container.innerHTML='';
+    container.innerHTML = '';
 
-    taskList.forEach((task,i)=>{
+    taskList.forEach((task, i) => {
+        if (task.img == null && task != null) {
+            if (task.completed) {
+                task.img = 'https://picsum.photos/1600/900?v1';
+            }
+            else {
+                task.img = 'https://picsum.photos/1600/900';
+            }
+        }
         let divTask = document.createElement('div');
-        divTask.className="taskCard";
+        divTask.className = "taskCard";
+        divTask.innerHTML= '';
         divTask.innerHTML = `
-            ${task.img?"<img src='" + task.img + "' />":""}
-            <h4> <input type="checkbox" ${task.completed?"checked":""} title="check completed">  ${task.title + ' ' + i}</h4>
-            <span>created on ${task.createdOn} by ${task.createdBy}</span>
-            <p>${task.description}</p>
-            <span>Due on ${task.dueDate}</span>            
+        <div class='row'>
+        <div class='col-md-2'>
+        ${task.img ? "<img src='" + task.img + "' class='img-task'/>" : ""}
+        </div>
+        <div class='col-md-10'>
+        <h4> <input type="checkbox" ${task.completed ? "checked" : ""} title="check completed">  ${task.title + ' ' + i}</h4>
+        <span>created on ${task.createdOn} by ${task.createdBy}</span>
+        <p>${task.description}</p>
+        <span>Due on ${task.dueDate}</span>
+        </div>   
+        </div>
         `;
 
-        if(task.completed)
+        if (task.completed)
             divTask.classList.add("taskCompleted");
-        else if(task.dueDate < Date.now() )
+        else if (task.dueDate < Date.now())
             divTask.classList.add("taskLate");
 
 
@@ -28,7 +43,8 @@ function loadTasks(taskList){
 loadTasks(taskList);
 
 
-function addTask(task){
+function addTask(task) {
+    debugger
     taskList.unshift(task);
     loadTasks(taskList);
 }

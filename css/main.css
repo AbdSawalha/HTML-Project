@@ -23,3 +23,45 @@ body{
 .taskCard >img{
     width: 160px;
 }
+.container {
+    width: auto !important;
+}
+
+.img-task {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px black;
+}
+.button {
+    padding: 2px 8px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #337ab7;
+    border: none;
+    border-radius: 13px;
+    box-shadow: 0 3px #999;
+  }
+  .button:hover {background-color: #286090}
+
+.button:active {
+  background-color: #286090;
+  box-shadow: 0 3px #999;
+  transform: translateY(1px);
+}
+.panel-header{
+    text-shadow: 1px 1px 1px #666;
+    font-weight: bold;
+    text-align: center;
+    padding: 30px;
+}
+
+.panel-heading {
+    font-size: 16px;
+}
+
+i.glyphicon.glyphicon-th-list {
+    padding-right: 5px;
+}
