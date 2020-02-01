@@ -65,3 +65,7 @@ body{
 i.glyphicon.glyphicon-th-list {
     padding-right: 5px;
 }
+.Task-New{
+
+    background-color: #8baac5 !important;
+}

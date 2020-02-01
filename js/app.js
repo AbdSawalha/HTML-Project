@@ -12,13 +12,20 @@ function loadTasks(taskList) {
                 task.img = 'https://picsum.photos/1600/900';
             }
         }
-        if (task.description == "This is my new task") {
+        let divTask = document.createElement('div');
+        if (task.title == "My New Task!") {
             task.createdOn=new Date();
             task.dueDate=new Date("01/01/2018");
             task.completed = false;
+            if(task.createdBy==null){
+                task.createdBy="Employee";
+            }
+            divTask.className = "taskCard Task-New";
         }
-        let divTask = document.createElement('div');
-        divTask.className = "taskCard";
+        else{
+            divTask.className = "taskCard";
+        }
+        
         divTask.innerHTML = '';
         divTask.innerHTML = `
         <div class='row'>
@@ -27,9 +34,9 @@ function loadTasks(taskList) {
         </div>
         <div class='col-md-10'>
         <h4> <input type="checkbox" ${task.completed ? "checked" : ""} title="check completed">  ${task.title + ' ' + i}</h4>
-        <span>created on ${task.createdOn} by ${task.createdBy}</span>
+        <span>created on ${GetDateTime(task.createdOn)} by ${task.createdBy}</span>
         <p>${task.description}</p>
-        <span>Due on ${task.dueDate}</span>
+        <span>Due on ${GetDate(task.dueDate)}</span>
         </div>   
         </div>
         `;
@@ -47,7 +54,14 @@ function loadTasks(taskList) {
 
 loadTasks(taskList);
 
-
+function GetDateTime(date){
+    var newDate=new Date(date);
+    return newDate.getFullYear() + "/" + (newDate.getMonth()+1) + "/" + newDate.getDate() +" " + newDate.getHours() + ":" + newDate.getMinutes() + ":" + newDate.getSeconds();
+}
+function GetDate(date){
+    var newDate=new Date(date);
+    return newDate.getFullYear() + "/" + (newDate.getMonth()+1) + "/" + newDate.getDate() ;
+}
 function addTask(task) {
     debugger
     taskList.unshift(task);
