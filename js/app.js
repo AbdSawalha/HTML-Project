@@ -12,9 +12,15 @@ function loadTasks(taskList) {
                 task.img = 'https://picsum.photos/1600/900';
             }
         }
+        if (task.description == "This is my new task") {
+            debugger
+            task.createdOn=new Date();
+            task.dueDate=new Date("01/01/2018");
+            task.completed = false;
+        }
         let divTask = document.createElement('div');
         divTask.className = "taskCard";
-        divTask.innerHTML= '';
+        divTask.innerHTML = '';
         divTask.innerHTML = `
         <div class='row'>
         <div class='col-md-2'>
